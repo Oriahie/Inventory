@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Week5Exercise.No1_3
 {
+    
+        
+        
+
+
+
     abstract class Animal
     {
         private int weight;
@@ -30,7 +36,7 @@ namespace Week5Exercise.No1_3
 
         public override void ToString()
         {
-            Console.WriteLine("This prints out he string");
+            Console.WriteLine("This prints out the string");
         }
     }
 
@@ -49,8 +55,30 @@ namespace Week5Exercise.No1_3
 
         public override void ToString()
         {
-            Console.WriteLine("This prints out he string");
+            Console.WriteLine("This prints out the string");
         }
     }
+
+
+    public class Dog1
+    {
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            else
+                return true;
+        }
+
+
+        Dog1 dogA = new Dog1();
+        Dog1 dogB = new Dog1();
+        Console.WriteLine(dogA.Equals(dogB)));
+
+
+
+
+    }
+
 
 }

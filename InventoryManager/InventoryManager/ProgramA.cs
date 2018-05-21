@@ -10,6 +10,7 @@ namespace InventoryManager
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("______________________________Price Sum___________________________________");
             foreach (var item in InventoryManager.GetInventories())
             {
@@ -17,6 +18,16 @@ namespace InventoryManager
             }
             var sum = InventoryManager.GetInventories().Sum(x => x.Price);
             Console.WriteLine("{0:C}", sum);
+
+
+
+            Console.WriteLine("______________________________Price Average___________________________________");
+            foreach (var item in InventoryManager.GetInventories())
+            {
+                Console.WriteLine($"{item.ID} : {item.Name} - {item.Price}");
+            }
+            var avg = InventoryManager.GetInventories().Average(x => x.Price);
+            Console.WriteLine("{0:C}", avg);
 
 
             Console.WriteLine("       ");
@@ -30,6 +41,7 @@ namespace InventoryManager
             }
 
 
+            
             Console.WriteLine("       ");
 
             Console.WriteLine("______________________________Take While___________________________________");
@@ -51,6 +63,7 @@ namespace InventoryManager
             {
                 Console.WriteLine($"{item.ID} : {item.Name} - {item.Price} [{item.EntryDate}] ");
             }
+
 
 
             Console.WriteLine("       ");

@@ -11,19 +11,25 @@ namespace Week5Exercise
     {
         static void Main(string[] args)
         {
-            Animal[] animals = new Animal[2];
+            Animal[] animals = new Animal[8];
             {
-                new Dog();
-                new Cat();
+                new Dog(20, "Mark");
+                new Cat(13, "Marly");                
+
+                new Dog(13, "Suzzy");
+                new Cat(14, "Zara");                
+                
+                new Dog(12, "Rath");
+                new Cat(17, "Railey");
             }
 
 
 
             foreach (var animal in animals)
             {
-                animal.Move();
-                animal.Speak();
-                animal.ToString();
+                Console.WriteLine(animal.Move());
+                Console.WriteLine(animal.Speak());
+                Console.WriteLine(animal.ToString());
             }
 
 

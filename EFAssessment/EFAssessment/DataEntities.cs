@@ -50,6 +50,9 @@ namespace EFAssessment
             modelBuilder.Configurations.Add(new BlogMap());
             modelBuilder.Configurations.Add(new AuthorMap());
             modelBuilder.Configurations.Add(new PostMap());
+            modelBuilder.Configurations.Add(new TagMap());
+            //modelBuilder.Entity<Tag>().HasOptional(c=>c.Name).WithMany(c=>c.)
+                
 
         }
 
