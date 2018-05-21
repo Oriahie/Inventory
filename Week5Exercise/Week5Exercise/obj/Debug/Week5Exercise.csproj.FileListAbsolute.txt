@@ -5,3 +5,7 @@ C:\Users\em-Christos\source\repos\Prolifik\Week5Exercise\Week5Exercise\obj\Debug
 C:\Users\em-Christos\source\repos\Prolifik\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.csproj.CoreCompileInputs.cache
 C:\Users\em-Christos\source\repos\Prolifik\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.exe
 C:\Users\em-Christos\source\repos\Prolifik\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.pdb
+C:\Repos\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.csprojResolveAssemblyReference.cache
+C:\Repos\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.csproj.CoreCompileInputs.cache
+C:\Repos\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.exe
+C:\Repos\Week5Exercise\Week5Exercise\obj\Debug\Week5Exercise.pdb
