@@ -189,6 +189,7 @@ namespace InventoryManager
 
     }
 
+
     public class UnionComaparer : IEqualityComparer<Inventory>
     {
         public bool Equals(Inventory x, Inventory y)
@@ -199,7 +200,11 @@ namespace InventoryManager
         public int GetHashCode(Inventory obj)
         {
             return obj.Name.GetHashCode();
-        }
+         }
     }
+
+
+
+
 
 }

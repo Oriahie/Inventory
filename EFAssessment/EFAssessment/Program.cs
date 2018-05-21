@@ -10,7 +10,7 @@ namespace EFAssessment
     {
         static void Main(string[] args)
         {
-            AddandEdit();
+           // AddandEdit();
            // GetAll();
            // GetSingle();
            // Delete();
