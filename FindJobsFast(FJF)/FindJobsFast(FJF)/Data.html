@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/SweetAlert/sweetalert.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="Content/Temp/img/favicon.ico" />
+   
+
+    <title>Registration Page</title>
+
+</head>
+<body>
+    
+
+    <div class="limiter">
+        <div >
+            <div class="jumbotron">
+
+                        <table id="tblData" class="well" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                            <tbody id="tblBody"></tbody>
+                </table>
+               
+                <!--<table id="userTB" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                </table>-->
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            $.ajax({
+                url: '/api/Email/GetUsers',
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        var row = $('<tr><td>' + value.Email + '</td></tr>');
+                        $('#tblData').append(row);
+
+                    });
+                },
+
+            })
+        });
+
+
+    </script>
+
+    <!--<script>
+
+
+        $(function () {
+            var dataTable = $('#userTB').DataTable({
+                //configuration settings for the table
+                "ajax": {
+                    "url": "/api/Email/GetUsers",
+                    "type": "GET",
+                    "dataType": "json",
+                    "dataSrc": "", //render as array not json
+                    "Authorization": "Bearer " + localStorage.getItem('accesstoken')
+                },
+                "columns":
+                    [
+                        
+                        { "data": "Email" },
+                        
+                    ],
+
+                "language": {
+                    "emptyTable": "Table is empty"
+                }
+            });
+        });
+    </script>-->
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Log In</title>
+    <link rel="icon" type="image/ico" href="Content/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+    <link href="Content/animate.css" rel="stylesheet" />
+    <link href="Content/hamburgers.min.css" rel="stylesheet" />
+    <link href="Content/select2.min.css" rel="stylesheet" />
+    <link href="Content/main.css" rel="stylesheet" />
+    <link href="Content/util.css" rel="stylesheet" />
+    <link href="Content/sweetalert.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="Content/img/img-01.png" alt="IMG" />
+                </div>
+
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title">
+                        Member Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" id="Email" name="Email" placeholder="Email...">
+                       
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" id="Password" name="Password" placeholder="Password...">
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button id="bnLogin" class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+
+
+
+                    <div class="text-center p-t-136">
+                        <a href="Register.html">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Content/js/jquery-3.2.1.min.js"></script>
+    <script src="Content/js/popper.js"></script>
+    <script src="Content/js/bootstrap.min.js"></script>
+    <script src="Content/js/select2.min.js"></script>
+    <script src="Content/js/tilt.jquery.min.js"></script>
+    <script src="Content/sweetalert.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <script src="Content/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#bnLogin').click(function () {
+                $.ajax({
+                    url: '/Token',
+                    method: 'POST',
+                    //contentType: 'application/json',
+                    data: {
+                        username: $('#Email').val(),
+                        password: $('#Password').val(),
+                        grant_type: 'password'
+                    },
+                    success: function (response) {
+                        
+                        localStorage.setItem('access_token', response.access_token);
+                        localStorage.setItem('userName', response.userName);
+                        window.location.href = "/Home/Index";
+                    },
+                    error: function (jqXHR) {
+                        swal("Failed", "Oops, An error Occured", "error");
+                    }
+
+                });
+
+
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>

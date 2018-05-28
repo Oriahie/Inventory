@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/SweetAlert/sweetalert.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="Content/Temp/img/favicon.ico" />
+    <link href="Content/Temp/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Temp/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/Temp/css/animate.css" rel="stylesheet" />
+    <link href="Content/Temp/css/hamburgers.min.css" rel="stylesheet" />
+    <link href="Content/Temp/css/select2.min.css" rel="stylesheet" />
+    <link href="Content/Temp/css/util.css" rel="stylesheet" />
+    <link href="Content/Temp/css/main.css" rel="stylesheet" />
+
+    <title>Registration Page</title>
+    
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="Content/Temp/img/img-01.png" alt="IMG" />
+                </div>
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title">
+                        Register New User
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: abc@abc.com">
+                        <input class="input100" type="text" id="txtEmail" name="Email" placeholder="Email...." />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" id="txtPassword"  name="Password" placeholder="Password...." />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" id="txtConfirmPassword" name="Confirm Password" placeholder="Confirm Password...." />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <input id="btnRegister" class="btn btn-success login100-form-btn" type="button" value="Register" />
+                        <img id="ajax-loader" src="Content/ajax-loader.gif" style="display:none"/>
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="Login.html">
+                            Already a Member? Click Here
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                        
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Content/Temp/js/jquery-3.2.1.min.js"></script>
+    <script src="Content/Temp/js/popper.js"></script>
+    <script src="Content/Temp/js/bootstrap.min.js"></script>
+    <script src="Content/Temp/js/select2.min.js"></script>
+    <script src="Content/Temp/js/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <script src="Content/Temp/js/main.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Content/SweetAlert/sweetalert.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#btnRegister').click(function () {
+
+                    //This sends the mail using smtp
+                    var formData = {};
+                    formData.Email = $('#txtEmail').val();
+                    formData.Password = $('#txtPassword').val();
+                    
+
+                    //$.ajax({
+                    //    url: '/api/Email/WelcomeEmail',
+                    //    type: 'POST',
+                    //    contentType: 'application/json; charset=utf-8',
+                    //    data: JSON.stringify(formData),
+                    //    error: function () {
+
+                    //        alert('error occurred, try again');
+                    //    },
+                    //    success: function () {
+                    //        alert('mail sent successfully');
+
+
+                    //    }
+                    //});
+
+
+                    $.ajax({
+                        url: '/api/Account/Register',
+                        method: 'POST',
+                        data: {
+                            email: $('#txtEmail').val(),
+                            password: $('#txtPassword').val(),
+                            confirmPassword: $('#txtConfirmPassword').val(),
+                        },
+                        success: function () {
+                            swal("Success", "You have succesfully Registered", "success");
+                        },
+                        error: function (jqXHR) {
+                            
+                            
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
